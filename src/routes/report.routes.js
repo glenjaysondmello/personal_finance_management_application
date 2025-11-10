@@ -1,7 +1,7 @@
 const express = require("express");
 
 const { monthlyReport } = require("../controllers/report.controller");
-const authMiddleware = require("../middleware/auth.middleware");
+const { authMiddleware } = require("../middleware/auth.middleware");
 
 const router = express.Router();
 

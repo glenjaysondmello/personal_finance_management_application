@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const pool = require("../config/db");
+require("dotenv").config();
 
 const authMiddleware = async (req, res, next) => {
   try {
@@ -32,4 +33,4 @@ const authMiddleware = async (req, res, next) => {
   }
 };
 
-module.exports = authMiddleware;
+module.exports = { authMiddleware };

@@ -5,7 +5,7 @@ const create = async (req, res, next) => {
     const { id } = req.user;
     const { category, amount, month, year } = req.body;
 
-    const b = await budgetService.setBudget({
+    const b = await budgetService.addBudget({
       userId: id,
       category,
       amount,
@@ -25,11 +25,7 @@ const list = async (req, res, next) => {
     const month = parseInt(req.query.month) || now.getMonth() + 1;
     const year = parseInt(req.query.year) || now.getFullYear();
 
-    const budgets = await budgetService.getBudgetsForMonth({
-      userId: id,
-      month,
-      year,
-    });
+    const budgets = await budgetService.getBudgetsForMonth(id, month, year);
     res.json(budgets);
   } catch (err) {
     next(err);

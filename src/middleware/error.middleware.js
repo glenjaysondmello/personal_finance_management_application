@@ -1,4 +1,4 @@
-function errorHandler(err, req, res, next) {
+const errorHandler = (err, req, res, next) => {
   console.error(err);
 
   const status = err.status || 500;
@@ -7,6 +7,6 @@ function errorHandler(err, req, res, next) {
   if (err.stack) body.stack = err.stack;
 
   res.status(status).json(body);
-}
+};
 
 module.exports = { errorHandler };

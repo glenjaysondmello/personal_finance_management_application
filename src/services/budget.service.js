@@ -45,25 +45,25 @@ const getBudgetsForMonth = async (userId, month, year) => {
 
     const results = [];
 
-    const [sumRows] = await pool.query(
-      `SELECT IFNULL(SUM(amount),0) as spent FROM transactions WHERE userId = ? AND type='expense' AND category = ? AND date BETWEEN ? AND ?`,
-      [
-        userId,
-        b.category,
-        `${year}-${String(month).padStart(2, "0")}-01`,
-        `${year}-${String(month).padStart(2, "0")}-31`,
-      ]
-    );
-
-    results.push({
-      id: b.id,
-      category: b.category,
-      budgetAmount: parseFloat(b.amount),
-      spent: parseFloat(sumRows[0].spent || 0),
-      month: b.month,
-      year: b.year,
-    });
-
+    for (const b of budgets) {
+      const [sumRows] = await pool.query(
+        `SELECT IFNULL(SUM(amount),0) as spent FROM transactions WHERE userId = ? AND type='expense' AND category = ? AND date BETWEEN ? AND ?`,
+        [
+          userId,
+          b.category,
+          `${year}-${String(month).padStart(2, "0")}-01`,
+          `${year}-${String(month).padStart(2, "0")}-31`,
+        ]
+      );
+      results.push({
+        id: b.id,
+        category: b.category,
+        budgetAmount: parseFloat(b.amount),
+        spent: parseFloat(sumRows[0].spent || 0),
+        month: b.month,
+        year: b.year,
+      });
+    }
     return results;
   } catch (error) {
     console.error("Error fetching budgets:", error);

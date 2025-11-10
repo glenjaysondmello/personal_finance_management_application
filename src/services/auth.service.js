@@ -2,6 +2,8 @@ const pool = require("../config/db");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+require("dotenv").config();
+
 const saltRounds = parseInt(process.env.BCRYPT_SALT_ROUNDS) || 10;
 
 const register = async (email, password) => {
