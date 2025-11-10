@@ -1,0 +1,260 @@
+{
+  "info": {
+    "_postman_id": "305a0ade-2e39-4d27-b5f8-2e37b65bfb93",
+    "name": "finance",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "36615352"
+  },
+  "item": [
+    {
+      "name": "register",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "login",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "add-wallet",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJnbGVuQGdtYWlsLmNvbSIsImlhdCI6MTc2Mjc3MjA2OCwiZXhwIjoxNzYzMzc2ODY4fQ.ah40eohXskRimkH41PuDKtd-kAPHtb0LQFtk72DF3CI",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Cash\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:4000/api/wallets",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["api", "wallets"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get-wallet",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJnbGVuQGdtYWlsLmNvbSIsImlhdCI6MTc2Mjc3MjA2OCwiZXhwIjoxNzYzMzc2ODY4fQ.ah40eohXskRimkH41PuDKtd-kAPHtb0LQFtk72DF3CI",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4000/api/wallets",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["api", "wallets"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "add-transaction",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJnbGVuQGdtYWlsLmNvbSIsImlhdCI6MTc2Mjc3MjA2OCwiZXhwIjoxNzYzMzc2ODY4fQ.ah40eohXskRimkH41PuDKtd-kAPHtb0LQFtk72DF3CI",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"walletId\": 1,\r\n  \"type\": \"expense\",\r\n  \"amount\": 20.50,\r\n  \"category\": \"Food\",\r\n  \"date\": \"2025-11-10\",\r\n  \"description\": \"Lunch\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:4000/api/transactions",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["api", "transactions"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get-transaction",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJnbGVuQGdtYWlsLmNvbSIsImlhdCI6MTc2Mjc3MjA2OCwiZXhwIjoxNzYzMzc2ODY4fQ.ah40eohXskRimkH41PuDKtd-kAPHtb0LQFtk72DF3CI",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:4000/api/transactions",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["api", "transactions"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "add-budget",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJnbGVuQGdtYWlsLmNvbSIsImlhdCI6MTc2Mjc3MjA2OCwiZXhwIjoxNzYzMzc2ODY4fQ.ah40eohXskRimkH41PuDKtd-kAPHtb0LQFtk72DF3CI",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"category\": \"Food\",\r\n  \"amount\": 200,\r\n  \"month\": 11,\r\n  \"year\": 2025\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:4000/api/budgets",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["api", "budgets"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get-budget",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJnbGVuQGdtYWlsLmNvbSIsImlhdCI6MTc2Mjc3MjA2OCwiZXhwIjoxNzYzMzc2ODY4fQ.ah40eohXskRimkH41PuDKtd-kAPHtb0LQFtk72DF3CI",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4000/api/budgets",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["api", "budgets"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "report",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJnbGVuQGdtYWlsLmNvbSIsImlhdCI6MTc2Mjc3MjA2OCwiZXhwIjoxNzYzMzc2ODY4fQ.ah40eohXskRimkH41PuDKtd-kAPHtb0LQFtk72DF3CI",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:4000/api/report?month=11&year=2025",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["api", "report"],
+          "query": [
+            {
+              "key": "month",
+              "value": "11"
+            },
+            {
+              "key": "year",
+              "value": "2025"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
