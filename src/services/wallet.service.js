@@ -13,6 +13,7 @@ const createWallet = async (userId, name) => {
 
     return rows[0];
   } catch (error) {
+    console.error("Error creating wallet:", error);
     throw error;
   }
 };
@@ -25,6 +26,7 @@ const listWallets = async (userId) => {
 
     return rows;
   } catch (error) {
+    console.error("Error listing wallets:", error);
     throw error;
   }
 };
@@ -41,6 +43,7 @@ const deleteWallet = async (userId, walletId) => {
     await pool.query("DELETE FROM wallets WHERE id = ?", [walletId]);
     return true;
   } catch (error) {
+    console.error("Error deleting wallet:", error);
     throw error;
   }
 };
